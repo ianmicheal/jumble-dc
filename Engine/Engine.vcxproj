@@ -121,6 +121,7 @@
   <ItemGroup>
     <ClCompile Include="debug_windows.c" />
     <ClCompile Include="engine.c" />
+    <ClCompile Include="engine_dreamcast.c" />
     <ClCompile Include="engine_windows.c" />
     <ClCompile Include="renderer.c" />
     <ClCompile Include="scene.c" />

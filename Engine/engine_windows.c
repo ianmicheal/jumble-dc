@@ -3,6 +3,8 @@
 #include <GLFW\glfw3.h>
 #include <stdlib.h>
 
+#ifdef PC_BUILD
+
 static struct engine_t* engineInstance = NULL;
 
 int engine_init_windows(struct engine_t* hndl)
@@ -77,3 +79,27 @@ void engine_destroy_windows()
 	glfwDestroyWindow(engineInstance->window);
 	glfwTerminate();
 }
+
+// Dreamcast method stubs: only implemented
+// to avoid compilation problems
+inline int engine_init_dreamcast(struct engine_t* hndl)
+{
+	return 0;
+}
+
+inline void engine_destroy_dreamcast()
+{
+	return;
+}
+
+inline int engine_doFrame_dreamcast()
+{
+	return 0;
+}
+
+inline void engine_endFrame_dreamcast()
+{
+	return;
+}
+
+#endif // PC_BUILD
