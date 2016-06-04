@@ -1,0 +1,8 @@
+*.sdf
+*.pdb
+*.ilk
+*.obj
+*.idb
+x64/
+Engine/x64/
+Game/x64/

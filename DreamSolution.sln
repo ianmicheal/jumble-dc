@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcxproj", "{19F83A7F-D8D7-4880-994F-33383261808B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "Game\Game.vcxproj", "{C67A52B8-5B8B-4347-A4F7-7A2152DC8CAE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{19F83A7F-D8D7-4880-994F-33383261808B} = {19F83A7F-D8D7-4880-994F-33383261808B}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19F83A7F-D8D7-4880-994F-33383261808B}.Debug|x64.ActiveCfg = Debug|x64
+		{19F83A7F-D8D7-4880-994F-33383261808B}.Debug|x64.Build.0 = Debug|x64
+		{19F83A7F-D8D7-4880-994F-33383261808B}.Debug|x86.ActiveCfg = Debug|Win32
+		{19F83A7F-D8D7-4880-994F-33383261808B}.Debug|x86.Build.0 = Debug|Win32
+		{19F83A7F-D8D7-4880-994F-33383261808B}.Release|x64.ActiveCfg = Release|x64
+		{19F83A7F-D8D7-4880-994F-33383261808B}.Release|x64.Build.0 = Release|x64
+		{19F83A7F-D8D7-4880-994F-33383261808B}.Release|x86.ActiveCfg = Release|Win32
+		{19F83A7F-D8D7-4880-994F-33383261808B}.Release|x86.Build.0 = Release|Win32
+		{C67A52B8-5B8B-4347-A4F7-7A2152DC8CAE}.Debug|x64.ActiveCfg = Debug|x64
+		{C67A52B8-5B8B-4347-A4F7-7A2152DC8CAE}.Debug|x64.Build.0 = Debug|x64
+		{C67A52B8-5B8B-4347-A4F7-7A2152DC8CAE}.Debug|x86.ActiveCfg = Debug|Win32
+		{C67A52B8-5B8B-4347-A4F7-7A2152DC8CAE}.Debug|x86.Build.0 = Debug|Win32
+		{C67A52B8-5B8B-4347-A4F7-7A2152DC8CAE}.Release|x64.ActiveCfg = Release|x64
+		{C67A52B8-5B8B-4347-A4F7-7A2152DC8CAE}.Release|x64.Build.0 = Release|x64
+		{C67A52B8-5B8B-4347-A4F7-7A2152DC8CAE}.Release|x86.ActiveCfg = Release|Win32
+		{C67A52B8-5B8B-4347-A4F7-7A2152DC8CAE}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
