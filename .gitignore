@@ -3,6 +3,7 @@
 *.ilk
 *.obj
 *.idb
+*.opendb
 x64/
 Engine/x64/
 Game/x64/
