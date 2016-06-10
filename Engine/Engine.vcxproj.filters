@@ -30,6 +30,9 @@
     <ClInclude Include="scene.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="resources.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="debug_windows.c">
@@ -51,6 +54,9 @@
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="engine_dreamcast.c">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="resources.c">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
   </ItemGroup>

@@ -2,6 +2,7 @@
 #define _SCENE_H_
 
 #ifdef _WIN64
+#pragma once
 #endif
 
 #include "vector.h"

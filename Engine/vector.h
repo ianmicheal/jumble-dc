@@ -2,6 +2,7 @@
 #define _VECTOR_H_
 
 #ifdef _WIN64
+#pragma once
 #endif
 
 struct mat44_t
