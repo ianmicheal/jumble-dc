@@ -89,7 +89,7 @@
       <AdditionalDependencies>opengl32.lib;engine.lib;glfw3.lib;glu32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy $(SolutionDir)extern\bin $(OutDir) /s /i</Command>
+      <Command>xcopy $(SolutionDir)extern\bin $(OutDir) /s /i /Y</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Copying the depencies to the output directory</Message>

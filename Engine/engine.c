@@ -17,6 +17,7 @@ int engine_init(struct engine_t* hndl)
 		// Init the renderer and the scene manager
 		renderer_init(&hndl->renderer, hndl);
 		scene_init(&hndl->scene, hndl);
+		resources_init(hndl);
 
 		hndl->deltaTime = 0.0f;
 		hndl->lastTime = 0.0f;

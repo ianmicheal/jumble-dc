@@ -13,6 +13,7 @@
 #include "renderer.h"
 #include "scene.h"
 #include "debug.h"
+#include "resources.h"
 
 /*
  * Engine structure: engine_t

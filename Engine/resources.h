@@ -13,6 +13,8 @@
 #define RESOURCE_TYPE_AUDIO_PCM
 #define RESOURCE_TYPE_AUDIO_VORBIS
 
+#include "engine.h"
+
 struct resource_t
 {
 	unsigned char resourceType;
@@ -26,10 +28,15 @@ struct resource_list_t
 	struct resource_t *head;
 };
 
+// Public methods
 void resources_init(struct engine_t *eng);
 void resources_get_list(struct resource_list_t *resources);
 
 void resources_load(struct resource_t *rc);
 void resources_unload(struct resource_t *rc);
+
+// Private methods
+void resources_get_list_windows(struct resource_list_t *resources);
+void resources_get_list_dreamcast(struct resource_list_t *resources);
 
 #endif // _RESOURCES_H_
