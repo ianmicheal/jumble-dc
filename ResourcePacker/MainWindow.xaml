@@ -14,7 +14,7 @@
         <Button x:Name="folderButton" Content="Select Directory" HorizontalAlignment="Left" Margin="10,294,0,0" VerticalAlignment="Top" Width="111" Height="20" Click="folderButton_Click"/>
         <Button x:Name="generateButton" Content="Generate Package" HorizontalAlignment="Left" Margin="126,294,0,0" VerticalAlignment="Top" Width="129" Height="20"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="268" Margin="10,10,0,0" VerticalAlignment="Top" Width="271">
-            <ListBox x:Name="filesListBox"/>
+            <ListBox x:Name="filesListBox" SelectionChanged="filesListBox_SelectionChanged"/>
         </Border>
         <Label x:Name="nameLabel" Content="Name:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="231"/>
         <Label x:Name="sizeLabel" Content="Size: 0 bytes" Grid.Column="1" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="231"/>
