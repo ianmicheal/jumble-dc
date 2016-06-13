@@ -1,0 +1,14 @@
+D:\Projectes\DreamcastGame\jumble-no-yume\ResourcePacker\bin\Debug\ResourcePacker.exe.config
+D:\Projectes\DreamcastGame\jumble-no-yume\ResourcePacker\bin\Debug\ResourcePacker.exe
+D:\Projectes\DreamcastGame\jumble-no-yume\ResourcePacker\bin\Debug\ResourcePacker.pdb
+D:\Projectes\DreamcastGame\jumble-no-yume\ResourcePacker\obj\Debug\ResourcePacker.csprojResolveAssemblyReference.cache
+D:\Projectes\DreamcastGame\jumble-no-yume\ResourcePacker\obj\Debug\MainWindow.g.cs
+D:\Projectes\DreamcastGame\jumble-no-yume\ResourcePacker\obj\Debug\App.g.cs
+D:\Projectes\DreamcastGame\jumble-no-yume\ResourcePacker\obj\Debug\ResourcePacker_MarkupCompile.cache
+D:\Projectes\DreamcastGame\jumble-no-yume\ResourcePacker\obj\Debug\ResourcePacker_MarkupCompile.lref
+D:\Projectes\DreamcastGame\jumble-no-yume\ResourcePacker\obj\Debug\MainWindow.baml
+D:\Projectes\DreamcastGame\jumble-no-yume\ResourcePacker\obj\Debug\ResourcePacker.g.resources
+D:\Projectes\DreamcastGame\jumble-no-yume\ResourcePacker\obj\Debug\ResourcePacker.Properties.Resources.resources
+D:\Projectes\DreamcastGame\jumble-no-yume\ResourcePacker\obj\Debug\ResourcePacker.csproj.GenerateResource.Cache
+D:\Projectes\DreamcastGame\jumble-no-yume\ResourcePacker\obj\Debug\ResourcePacker.exe
+D:\Projectes\DreamcastGame\jumble-no-yume\ResourcePacker\obj\Debug\ResourcePacker.pdb

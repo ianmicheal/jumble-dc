@@ -10,6 +10,8 @@
 	#define DREAM_BUILD
 #endif
 
+#include <stdint.h>
+
 #include "renderer.h"
 #include "scene.h"
 #include "debug.h"

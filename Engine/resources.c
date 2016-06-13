@@ -1,6 +1,7 @@
 #include "resources.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 static struct engine_t *engineInstance;
 
@@ -9,21 +10,30 @@ void resources_init(struct engine_t *eng)
 	engineInstance = eng;
 }
 
-void resources_get_list_windows(struct resource_list_t *resources)
+void resources_get_list(char* path, struct resource_list_t *resources)
 {
-#ifdef PC_BUILD
-	const char *rcPath = "cdrom\\RC.BIN";
 	FILE *rc;
 	const char *rcMagic = "RCLIST";
-	char rcHead[6];
+	char rcHead[7];
+	uint8_t index = 0;
+	struct resource_t *previous = NULL;
 
 	// Open the resources index file
-	fopen_s(&rc, rcPath, "r");
+	#ifdef PC_BUILD
+	fopen_s(&rc, path, "r");
+	#else
+	rc = fopen(path, "r");
+	#endif
 
 	// Read the resource list
 	// First, check if the file is a correct
 	// resource list file
+	#ifdef PC_BUILD
 	fread_s(rcHead, 6 * sizeof(char), sizeof(char), 6, rc);
+	#else
+	fread(rcHead, sizeof(char), 6, rc);
+	#endif
+	rcHead[6] = '\0';
 
 	// Check the header
 	if (strcmp(rcMagic, rcHead) != 0)
@@ -32,37 +42,102 @@ void resources_get_list_windows(struct resource_list_t *resources)
 		return;
 	}
 
+	// Copy the path to the resource struct
+	#ifdef PC_BUILD
+	strcpy_s(resources->path, strlen(path), path);
+	#else
+	strcpy(resources->path, path);
+	#endif
+
+	// Get the container resource count
+	#ifdef PC_BUILD
+	fread_s(&resources->resourceCount, sizeof(uint8_t), sizeof(uint8_t), 1, rc);
+	#else
+	fread(&resources->resourceCount, sizeof(uint8_t), 1, rc);
+	#endif
+
+	// Get the container version
+	#ifdef PC_BUILD
+	fread_s(&resources->version, sizeof(uint8_t), sizeof(uint8_t), 1, rc);
+	#else
+	fread(&resources->version, sizeof(uint8_t), 1, rc);
+	#endif
+
+	resources->head = NULL;
+
+	// Get the information for all the resources
+	while (index < resources->resourceCount)
+	{
+		// Allocate a new resource
+		struct resource_t *tempRc = malloc(sizeof(struct resource_t));
+		tempRc->next = NULL;
+		
+		// Read the resource name, type, size and offset
+		#ifdef PC_BUILD
+		fread_s(&tempRc->type, sizeof(uint8_t), sizeof(uint8_t), 1, rc);
+		#else
+		fread(&rc->type, sizeof(uint8_t), 1, rc);
+		#endif
+
+		#ifdef PC_BUILD
+		fread_s(&tempRc->name, sizeof(char), sizeof(char), 32, rc);
+		#else
+		fread(&rc->name, sizeof(char), 1, rc);
+		#endif
+
+		#ifdef PC_BUILD
+		fread_s(&tempRc->length, sizeof(uint32_t), sizeof(uint32_t), 1, rc);
+		#else
+		fread(&rc->length, sizeof(uint32_t), 1, rc);
+		#endif
+
+		#ifdef PC_BUILD
+		fread_s(&tempRc->offset, sizeof(uint32_t), sizeof(uint32_t), 1, rc);
+		#else
+		fread(&rc->offset, sizeof(uint32_t), 1, rc);
+		#endif
+
+		if (resources->head == NULL)
+		{
+			resources->head = tempRc;
+		}
+
+		if (previous == NULL)
+		{
+			previous = tempRc;
+		}
+		else
+		{
+			previous->next = tempRc;
+		}
+
+		index++;
+	}
+
 	// Close the file
 	fclose(rc);
-#endif
 }
 
-void resources_get_list_dreamcast(struct resource_list_t *resources)
+void resources_delete_list(struct resource_list_t *resources)
 {
-#ifdef DREAM_BUILD
-	const char *rcPath = "/cd/RC.BIN";
-	FILE *rc;
-	const char *rcMagic = "RCLIST";
-	char rcHead[6];
+	struct resource_t *current = resources->head, *next;
 
-	// Open the resources index file
-	rc = fopen(rcPath, "r");
-
-	// Read the resource list
-	// First, check if the file is a correct
-	// resource list file
-	fread(rcHead, sizeof(char), 6, rc);
-
-	// Check the header
-	if (strcmp(rcMagic, rcHead) != 0)
+	if (resources->head != NULL)
 	{
-		// Invalid file
-		return;
+		if (resources->head->next == NULL)
+		{
+			free(resources->head);
+		}
+		else
+		{
+			while (current != NULL)
+			{
+				next = current->next;
+				free(current);
+				current = next;
+			}
+		}
 	}
-
-	// Close the file
-	fclose(rc);
-#endif
 }
 
 void resources_load(struct resource_t *rc)
